@@ -1,0 +1,21 @@
+{
+    "name": "yangweijie/kingbes-libuui-sdk",
+    "description": "oop for kinbes/libui",
+    "type": "library",
+    "require": {
+        "kingbes/libui": "*"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Kingbes\\Libui\\SDK\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "yangweijie",
+            "email": "917647288@qq.com"
+        }
+    ],
+    "minimum-stability": "dev"
+}
