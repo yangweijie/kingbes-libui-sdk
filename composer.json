@@ -1,5 +1,5 @@
 {
-    "name": "yangweijie/kingbes-libuui-sdk",
+    "name": "yangweijie/kingbes-libui-sdk",
     "description": "oop for kinbes/libui",
     "type": "library",
     "require": {
