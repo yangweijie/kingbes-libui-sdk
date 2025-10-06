@@ -56,4 +56,15 @@ class LibuiCombobox extends LibuiComponent
     public function getItems(): array {
         return $this->items;
     }
+
+    public function clear(): self {
+        // 清空底层组件
+        Combobox::clear($this->handle);
+        
+        // 清空本地数组
+        $this->items = [];
+        $this->selected = -1;
+        
+        return $this;
+    }
 }

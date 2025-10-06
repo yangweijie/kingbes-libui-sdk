@@ -3,6 +3,7 @@
 namespace Kingbes\Libui\SDK;
 
 use Kingbes\Libui\App;
+use Kingbes\Libui\Menu;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use RuntimeException;
@@ -133,6 +134,37 @@ class LibuiApplication
             'is_linux' => PHP_OS_FAMILY === 'Linux',
             'is_macos' => PHP_OS_FAMILY === 'Darwin',
         ];
+    }
+
+    /**
+     * 创建菜单
+     *
+     * @param string $name 菜单名称
+     * @return \FFI\CData 菜单句柄
+     */
+    public function createMenu(string $name) {
+        return Menu::create($name);
+    }
+
+    /**
+     * 追加菜单项
+     *
+     * @param \FFI\CData $menu 菜单句柄
+     * @param string $name 菜单项名称
+     * @return \FFI\CData 菜单项句柄
+     */
+    public function appendMenuItem($menu, string $name) {
+        return Menu::appendItem($menu, $name);
+    }
+
+    /**
+     * 追加分隔线
+     *
+     * @param \FFI\CData $menu 菜单句柄
+     * @return void
+     */
+    public function appendMenuSeparator($menu): void {
+        Menu::appendSeparator($menu);
     }
 
     /**
