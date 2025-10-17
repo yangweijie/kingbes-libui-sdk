@@ -13,6 +13,8 @@ class LibuiHBox extends Container
     public function __construct() {
         parent::__construct();
         $this->handle = $this->createHandle();
+        // 确保初始padding设置生效
+        $this->applyPadding();
     }
 
     protected function createHandle(): CData {

@@ -35,12 +35,17 @@ class LibuiPath
         return $this;
     }
 
+    public function arc(float $xCenter, float $yCenter, float $radius, float $startAngle, float $sweep, bool $negative = false): self {
+        Draw::createPathFigureWithArc($this->handle, $xCenter, $yCenter, $radius, $startAngle, $sweep, $negative);
+        return $this;
+    }
+
     public function end(): self {
         Draw::pathEnd($this->handle);
         return $this;
     }
 
     public function __destruct() {
-        Draw::freePath($this->handle);
+        // 不在析构函数中释放路径，避免重复释放内存的问题
     }
 }

@@ -53,9 +53,14 @@ class LibuiWindow extends LibuiComponent
         return $this;
     }
 
-    public function setChild(LibuiComponent $child): self {
-        Window::setChild($this->handle, $child->getHandle());
-        $this->addChild($child);
+    public function setChild(LibuiComponent|CData $child): self {
+        if ($child instanceof LibuiComponent) {
+            Window::setChild($this->handle, $child->getHandle());
+            $this->addChild($child);
+        } else {
+            // 如果是CData对象，直接使用
+            Window::setChild($this->handle, $child);
+        }
         return $this;
     }
 

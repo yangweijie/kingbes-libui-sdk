@@ -48,6 +48,10 @@ class LibuiApplication
 
         return $this;
     }
+    
+    public function isInitialized(): bool {
+        return $this->initialized;
+    }
 
     public function createWindow(string $title, int $width = 640, int $height = 480): LibuiWindow {
         $window = new LibuiWindow($title, $width, $height);
