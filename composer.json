@@ -1,18 +1,15 @@
 {
     "name": "yangweijie/ui",
-    "description": "ui extension wrapper for kinbes/libui",
+    "description": "ui extension wrapper for kingbes/libui",
     "type": "library",
     "require": {
-        "kingbes/libui": "dev-main"
+        "kingbes/libui": "*"
     },
     "license": "MIT",
     "autoload": {
         "psr-4": {
             "UI\\": "src/"
-        },
-        "classmap": [
-            "src/"
-        ]
+        }
     },
     "authors": [
         {
@@ -25,12 +22,6 @@
         "pestphp/pest": "*",
         "phpunit/phpunit": "*"
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "vendor/kingbes/libui"
-        }
-    ],
     "config": {
         "allow-plugins": {
             "pestphp/pest-plugin": true
