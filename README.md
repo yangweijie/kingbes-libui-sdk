@@ -1,103 +1,105 @@
-# Kingbes LibUI SDK
+# UI
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/yangweijie/kingbes-libui-sdk.svg?style=flat-square)](https://packagist.org/packages/yangweijie/kingbes-libui-sdk)
-[![Total Downloads](https://img.shields.io/packagist/dt/yangweijie/kingbes-libui-sdk.svg?style=flat-square)](https://packagist.org/packages/yangweijie/kingbes-libui-sdk)
-
-这是一个基于 [kingbes/libui](https://github.com/kingbes/libui) 的 PHP GUI 开发工具包，提供了面向对象的 API，让 PHP 开发者能够更方便地创建桌面应用程序。
+这是一个对 [kingbes/libui](https://github.com/kingbes/php-libui) 的面向对象封装，提供了更符合 PHP 习惯的 API，灵感来源于 [PHP 官方的 UI 扩展](https://www.php.net/manual/zh/book.ui.php)。
 
 ## 安装
 
-使用 Composer 安装:
-
 ```bash
-composer require yangweijie/kingbes-libui-sdk
+composer require yangweijie/ui
 ```
 
-## 环境要求
+## 使用示例
 
-- PHP 8.0+
-- kingbes/libui 扩展 (请参考其安装说明)
-
-## 快速开始
-
-创建一个简单的应用程序:
+### 简单按钮示例
 
 ```php
-<?php
+// example/button.php
 
-require_once 'vendor/autoload.php';
+require dirname(__DIR__) . "/vendor/autoload.php";
 
-use Kingbes\Libui\SDK\LibuiApplication;
-use Kingbes\Libui\SDK\LibuiWindow;
-use Kingbes\Libui\SDK\LibuiButton;
+use UI\UI;
+use UI\Window;
+use UI\Size;
+use UI\Controls\Box;
+use UI\Controls\Orientation;
+use UI\Controls\Button;
 
 // 初始化应用
-$app = LibuiApplication::getInstance();
-$app->init();
+UI::init();
 
 // 创建窗口
-$window = $app->createWindow("Hello World", 300, 200);
+$window = new Window("窗口", new Size(640, 480), false);
+// 窗口设置边框
+$window->setMargin(true);
+
+// 窗口关闭事件
+$window->onClose(function ($window) {
+    echo "窗口关闭\n";
+    // 退出应用
+    UI::exit();
+    // 返回 true：关闭窗口, false：不关闭
+    return true;
+});
+
+// 创建垂直容器
+$box = new Box(Orientation::Vertical);
+$box->setPadded(true); // 设置边距
+$window->setChild($box); // 设置窗口子元素
 
 // 创建按钮
-$button = new LibuiButton("Click Me");
-
-// 绑定按钮点击事件
-$button->onClick(function() {
-    echo "Button clicked!\n";
+$btn01 = new Button("按钮");
+// 按钮点击事件
+$btn01->onClick(function ($btn01) use ($window) {
+    echo "按钮点击\n";
+    $window->msgBox("提示", "世界上最好的语言PHP~");
 });
+// 追加按钮到容器
+$box->append($btn01, false);
 
-// 将按钮添加到窗口并显示
-$window->setChild($button)->show();
+// 显示窗口
+$window->show();
 
-// 运行应用
-$app->run();
+// 启动主循环
+UI::run();
 ```
 
-## 核心概念
+运行示例：
 
-### LibuiApplication
-应用程序的入口点和核心管理器，使用单例模式。
-
-### LibuiComponent
-所有 UI 组件的基类，提供了组件树管理、事件处理和资源清理功能。
-
-### EventManager
-统一的事件管理器，用于处理组件间通信。
-
-## 支持的组件
-
-- 窗口 (Window)
-- 按钮 (Button)
-- 文本框 (Entry)
-- 多行文本框 (MultilineEntry)
-- 复选框 (Checkbox)
-- 单选框 (Radio)
-- 组合框 (Combobox)
-- 可编辑组合框 (EditableCombobox)
-- 微调器 (Spinbox)
-- 滑块 (Slider)
-- 进度条 (ProgressBar)
-- 日期时间选择器 (DateTimePicker)
-- 表格 (Table)
-- 选项卡 (Tab)
-- 绘图区域 (DrawArea)
-- 布局容器 (HBox, VBox, Grid, Form, Group)
-
-## 事件系统
-
-SDK 使用统一的事件管理器来处理组件事件。每个组件都可以通过 `on` 方法监听事件，也可以使用便捷方法如 `onClick`。
-
-```php
-$button->on('button.clicked', function($source, $data) {
-    // 处理按钮点击事件
-});
-
-// 或者使用便捷方法
-$button->onClick(function() {
-    // 处理按钮点击事件
-});
+```bash
+php example/button.php
 ```
 
-## 许可证
+## 测试
 
-MIT License. 详见 [LICENSE](LICENSE) 文件。
+本项目使用 Pest 作为测试框架。要运行测试，请执行以下命令：
+
+```bash
+# 运行所有测试
+php run_pest_tests.php
+
+# 或者使用 PHPUnit（如果配置正确）
+./vendor/bin/phpunit
+```
+
+## API 设计
+
+本库的 API 设计尽可能贴近 PHP 官方 UI 扩展的接口，方便开发者学习和使用。
+
+核心类包括：
+
+- `UI\UI`: UI 入口。
+- `UI\Window`: 窗口控件。
+- `UI\Size`: 用于表示尺寸。
+- `UI\Control`: 所有控件的基类。
+- `UI\Controls\Box`: 布局容器。
+- `UI\Controls\Button`: 按钮控件。
+- `UI\Draw\Brush`: 画笔基类。
+- `UI\Draw\Brush\Gradient`: 渐变画笔基类。
+- `UI\Draw\Brush\LinearGradient`: 线性渐变画笔。
+- `UI\Draw\Brush\RadialGradient`: 径向渐变画笔。
+- 更多控件正在封装中...
+
+## 依赖
+
+- PHP 8.2+
+- [kingbes/libui](https://github.com/kingbes/php-libui)

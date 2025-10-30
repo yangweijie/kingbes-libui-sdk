@@ -1,15 +1,18 @@
 {
-    "name": "yangweijie/kingbes-libui-sdk",
-    "description": "oop for kinbes/libui",
+    "name": "yangweijie/ui",
+    "description": "ui extension wrapper for kinbes/libui",
     "type": "library",
     "require": {
-        "kingbes/libui": "*"
+        "kingbes/libui": "dev-main"
     },
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Kingbes\\Libui\\SDK\\": "src/"
-        }
+            "UI\\": "src/"
+        },
+        "classmap": [
+            "src/"
+        ]
     },
     "authors": [
         {
@@ -17,5 +20,20 @@
             "email": "917647288@qq.com"
         }
     ],
-    "minimum-stability": "dev"
+    "minimum-stability": "dev",
+    "require-dev": {
+        "pestphp/pest": "*",
+        "phpunit/phpunit": "*"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "vendor/kingbes/libui"
+        }
+    ],
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
 }
