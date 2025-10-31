@@ -108,27 +108,13 @@ class DrawParams
         return $this->params ? $this->params->ClipHeight : 0.0;
     }
 
-    /**
-     * 填充路径
-     *
-     * @param Path $path 路径对象
-     * @param Brush $brush 画笔对象
-     * @return void
-     */
-    public function fill(Path $path, Brush $brush): void
-    {
-        // For now, just print a message instead of trying to draw
-        // This avoids the FFI crashes
-        echo "Fill called but not implemented due to FFI issues\n";
-    }
-
-    /**
-     * 获取底层的绘图参数对象
-     *
-     * @return CData
-     */
-    public function getParams(): CData
-    {
-        return $this->params;
+    /**
+     * 获取底层的绘图参数对象
+     *
+     * @return CData
+     */
+    public function getParams(): CData
+    {
+        return $this->params[0]->Context;
     }
 }

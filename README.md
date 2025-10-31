@@ -93,10 +93,6 @@ php vendor/pestphp/pest/bin/pest
 - `UI\Control`: 所有控件的基类。
 - `UI\Controls\Box`: 布局容器。
 - `UI\Controls\Button`: 按钮控件。
-- `UI\Draw\Brush`: 画笔基类。
-- `UI\Draw\Brush\Gradient`: 渐变画笔基类。
-- `UI\Draw\Brush\LinearGradient`: 线性渐变画笔。
-- `UI\Draw\Brush\RadialGradient`: 径向渐变画笔。
 - 更多控件正在封装中...
 
 ## 依赖
