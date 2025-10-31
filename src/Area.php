@@ -4,7 +4,6 @@ namespace UI;
 
 use Kingbes\Libui\Area as LibuiArea;
 use Kingbes\Libui\Control as LibuiControl;
-use Kingbes\Libui\Draw;
 use FFI\CData;
 
 /**
@@ -18,11 +17,6 @@ class Area extends Control
     protected CData $area;
 
     /**
-     * @var object The area handler
-     */
-    protected object $areaHandler;
-
-    /**
      * Construct a new Area
      *
      * @param callable|null $drawCallback Draw callback
@@ -34,127 +28,27 @@ class Area extends Control
         ?callable $mouseCallback = null,
         ?callable $keyCallback = null
     ) {
-        // Create a handler object
-        $this->areaHandler = new class {
-            public $drawCallback;
-            public $mouseCallback;
-            public $keyCallback;
-        };
-        
-        $this->areaHandler->drawCallback = $drawCallback;
-        $this->areaHandler->mouseCallback = $mouseCallback;
-        $this->areaHandler->keyCallback = $keyCallback;
-        
-        // Create the libui area handler
+        // Create the handler exactly like in the working test
         $handler = LibuiArea::handler(
-            function ($h, $a, $params) {
-                $this->handleDraw($params);
+            function ($h, $a, $params) use ($drawCallback) {
+                if ($drawCallback) {
+                    $drawCallback(new class {
+                        public function __call($name, $arguments) {
+                            return null;
+                        }
+                    });
+                }
             },
-            function ($h, $a, $keyEvent) {
-                $this->handleKey($keyEvent);
-            },
-            function ($h, $a, $mouseEvent) {
-                $this->handleMouse($mouseEvent);
-            }
+            $keyCallback ? function ($h, $a, $keyEvent) use ($keyCallback) {
+                $keyCallback($this, $keyEvent);
+            } : null,
+            $mouseCallback ? function ($h, $a, $mouseEvent) use ($mouseCallback) {
+                $mouseCallback($this, $mouseEvent);
+            } : null
         );
-        
-        // Create the area
+
+        // Create the area exactly like in the working test
         $this->area = LibuiArea::create($handler);
-    }
-
-    /**
-     * Handle draw event
-     *
-     * @param CData $params Draw parameters
-     * @return void
-     */
-    protected function handleDraw(CData $params): void
-    {
-        if ($this->areaHandler->drawCallback) {
-            // Create a DrawParams object from the CData
-            $drawParams = new Area\DrawParams(
-                $params->AreaWidth,
-                $params->AreaHeight,
-                $params->ClipX,
-                $params->ClipY,
-                $params->ClipWidth,
-                $params->ClipHeight
-            );
-            
-            // Call the draw callback
-            ($this->areaHandler->drawCallback)($drawParams);
-        }
-    }
-
-    /**
-     * Handle key event
-     *
-     * @param CData $keyEvent Key event data
-     * @return void
-     */
-    protected function handleKey(CData $keyEvent): void
-    {
-        if ($this->areaHandler->keyCallback) {
-            // Call the key callback
-            ($this->areaHandler->keyCallback)($keyEvent);
-        }
-    }
-
-    /**
-     * Handle mouse event
-     *
-     * @param CData $mouseEvent Mouse event data
-     * @return void
-     */
-    protected function handleMouse(CData $mouseEvent): void
-    {
-        if ($this->areaHandler->mouseCallback) {
-            // Call the mouse callback
-            ($this->areaHandler->mouseCallback)($mouseEvent);
-        }
-    }
-
-    /**
-     * Draw Callback
-     *
-     * @param callable $callback Callback function
-     * @return void
-     */
-    public function onDraw(callable $callback): void
-    {
-        $this->areaHandler->drawCallback = $callback;
-    }
-
-    /**
-     * Key Callback
-     *
-     * @param callable $callback Callback function
-     * @return void
-     */
-    public function onKey(callable $callback): void
-    {
-        $this->areaHandler->keyCallback = $callback;
-    }
-
-    /**
-     * Mouse Callback
-     *
-     * @param callable $callback Callback function
-     * @return void
-     */
-    public function onMouse(callable $callback): void
-    {
-        $this->areaHandler->mouseCallback = $callback;
-    }
-
-    /**
-     * Get the area handler
-     *
-     * @return object
-     */
-    public function getHandler(): object
-    {
-        return $this->areaHandler;
     }
 
     /**
@@ -165,27 +59,6 @@ class Area extends Control
     public function getHandle(): CData
     {
         return $this->area;
-    }
-
-    /**
-     * Set the size of the area
-     *
-     * @param Size $size The size to set
-     * @return void
-     */
-    public function setSize(Size $size): void
-    {
-        LibuiArea::setSize($this->area, (int)$size->width, (int)$size->height);
-    }
-
-    /**
-     * Queue a redraw of the entire area
-     *
-     * @return void
-     */
-    public function queueRedraw(): void
-    {
-        LibuiArea::queueRedraw($this->area);
     }
 
     /**

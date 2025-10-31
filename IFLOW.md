@@ -35,10 +35,61 @@ D:\git\php\ui\
 │   ├── UI.php             # UI 入口类
 │   ├── Window.php         # 窗口类
 │   ├── Area\              # Area 子目录
+│   │   └── DrawParams.php # Area 绘图参数类
 │   ├── Controls\          # 控件类目录
+│   │   ├── Box.php        # 布局容器控件
+│   │   ├── Button.php     # 按钮控件
+│   │   ├── Checkbox.php   # 复选框控件
+│   │   ├── Combobox.php   # 下拉框控件
+│   │   ├── DateTimePicker.php # 日期时间选择器控件
+│   │   ├── EditableCombobox.php # 可编辑下拉框控件
+│   │   ├── Entry.php      # 单行输入框控件
+│   │   ├── Form.php       # 表单布局控件
+│   │   ├── Grid.php       # 网格布局控件
+│   │   ├── Group.php      # 分组控件
+│   │   ├── Label.php      # 标签控件
+│   │   ├── MultilineEntry.php # 多行输入框控件
+│   │   ├── ProgressBar.php # 进度条控件
+│   │   ├── Radio.php      # 单选框控件
+│   │   ├── Separator.php  # 分隔符控件
+│   │   ├── Slider.php     # 滑块控件
+│   │   ├── Spinbox.php    # 数值输入框控件
+│   │   └── Tab.php        # 标签页控件
 │   ├── Draw\              # 绘图相关类目录
+│   │   ├── Brush.php      # 画笔基类
+│   │   ├── Color.php      # 颜色类
+│   │   ├── Matrix.php     # 矩阵变换类
+│   │   ├── Path.php       # 路径类
+│   │   ├── Pen.php        # 画笔类
+│   │   ├── Stroke.php     # 描边类
+│   │   ├── Brush\         # 画笔子目录
+│   │   │   ├── Gradient.php        # 渐变画笔基类
+│   │   │   ├── LinearGradient.php  # 线性渐变画笔
+│   │   │   └── RadialGradient.php  # 径向渐变画笔
+│   │   ├── Line\          # 线条相关类目录
+│   │   │   ├── Cap.php    # 线条端点样式类
+│   │   │   └── Join.php   # 线条连接点样式类
+│   │   └── Text\          # 文本相关类目录
+│   │       ├── Align.php  # 文本对齐方式类
+│   │       ├── Font.php   # 字体类
+│   │       ├── Layout.php # 文本布局类
+│   │       └── Font\      # 字体子目录
+│   │           ├── Descriptor.php # 字体描述符类
+│   │           ├── Italic.php     # 字体斜体样式类
+│   │           ├── Stretch.php    # 字体拉伸样式类
+│   │           └── Weight.php     # 字体粗细样式类
 │   └── Exception\         # 异常类目录
+│       ├── InvalidArgumentException.php # 无效参数异常类
+│       └── RuntimeException.php         # 运行时异常类
 ├── example\               # 示例代码目录
+│   ├── button.php         # 按钮示例
+│   ├── calculator.php     # 计算器示例
+│   ├── complex.php        # 复杂示例
+│   ├── grid.php           # 网格布局示例
+│   ├── grid1.php          # 网格布局示例1
+│   ├── grid2.php          # 网格布局示例2
+│   ├── grid3.php          # 网格布局示例3
+│   └── grid4.php          # 网格布局示例4
 ├── tests\                 # 测试代码目录
 └── vendor\                # Composer 依赖库目录
     └── kingbes\libui\     # 核心 GUI 绑定库
@@ -67,9 +118,29 @@ D:\git\php\ui\
 - `UI\Controls\Button`: 按钮控件
 - `UI\Controls\Label`: 标签控件
 - `UI\Controls\Entry`: 输入框控件
+- `UI\Controls\Checkbox`: 复选框控件
+- `UI\Controls\Combobox`: 下拉框控件
+- `UI\Controls\EditableCombobox`: 可编辑下拉框控件
+- `UI\Controls\DateTimePicker`: 日期时间选择器控件
+- `UI\Controls\Form`: 表单布局控件
+- `UI\Controls\Grid`: 网格布局控件
+- `UI\Controls\Group`: 分组控件
+- `UI\Controls\MultilineEntry`: 多行输入框控件
+- `UI\Controls\ProgressBar`: 进度条控件
+- `UI\Controls\Radio`: 单选框控件
+- `UI\Controls\Separator`: 分隔符控件
+- `UI\Controls\Slider`: 滑块控件
+- `UI\Controls\Spinbox`: 数值输入框控件
+- `UI\Controls\Tab`: 标签页控件
 - `UI\Size`: 用于表示尺寸
 - `UI\Point`: 用于表示坐标点
-- 更多控件正在封装中...
+- `UI\Draw\Brush`: 画笔基类
+- `UI\Draw\Brush\Gradient`: 渐变画笔基类
+- `UI\Draw\Brush\LinearGradient`: 线性渐变画笔
+- `UI\Draw\Brush\RadialGradient`: 径向渐变画笔
+- `UI\Draw\Color`: 颜色类
+- `UI\Draw\Font`: 字体类
+- `UI\Draw\Text\Layout`: 文本布局类
 
 ### 3.3. 工作原理
 

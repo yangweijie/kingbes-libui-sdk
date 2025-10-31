@@ -77,8 +77,8 @@ php example/button.php
 # 运行所有测试
 php run_pest_tests.php
 
-# 或者使用 PHPUnit（如果配置正确）
-./vendor/bin/phpunit
+# 或者直接使用 Pest
+php vendor/pestphp/pest/bin/pest
 ```
 
 ## API 设计

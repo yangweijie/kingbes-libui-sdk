@@ -1,0 +1,22 @@
+{
+  "data": {
+    "domain_name": "窗口管理域",
+    "module_name": "窗口管理子模块",
+    "module_description": "窗口管理子模块是GUI框架的核心组件，负责管理顶层窗口的完整生命周期。包括窗口创建、初始化、显示、隐藏、销毁等状态管理，以及窗口属性（如大小、位置、标题、样式）的配置和维护。该模块提供了窗口与底层操作系统窗口系统的接口抽象，确保跨平台兼容性和一致的窗口行为。",
+    "interaction": "该模块通过标准化的API接口与UI框架其他组件交互：1）与几何数据子模块交互进行坐标转换和尺寸计算；2）与区域控件子模块协作管理窗口内容区域；3）与框架协调子模块通信进行全局状态同步。外部接口包括窗口创建API、属性设置方法、事件回调机制和生命周期控制接口。",
+    "implementation": "采用分层架构设计，包含窗口抽象层、平台适配层和业务逻辑层。窗口抽象层定义统一的窗口接口和生命周期方法；平台适配层针对不同操作系统实现具体的窗口操作；业务逻辑层处理窗口状态管理和属性配置。支持多窗口管理、窗口层次控制、Z序管理、窗口分组等高级功能。集成事件系统处理用户交互和系统通知。",
+    "associated_files": [
+      "Window.php"
+    ],
+    "flowchart_mermaid": "graph TD\n    A[窗口请求] --> B{检查窗口状态}\n    B -->|新窗口| C[创建窗口实例]\n    B -->|现有窗口| D[获取窗口引用]\n    C --> E[初始化窗口属性]\n    D --> F[验证窗口有效性]\n    E --> G[注册窗口到管理器]\n    F --> G\n    G --> H[设置窗口事件监听]\n    H --> I[窗口就绪]\n    I --> J[显示窗口]\n    J --> K[窗口活动状态]\n    K --> L[处理用户交互]\n    L --> M{窗口操作请求}\n    M -->|关闭| N[触发关闭流程]\n    M -->|隐藏| O[窗口隐藏]\n    M -->|调整大小| P[重新计算布局]\n    M -->|其他| Q[执行相应操作]\n    N --> R[清理资源]\n    O --> S[保存窗口状态]\n    P --> T[触发重绘]\n    Q --> L\n    R --> U[窗口销毁完成]\n    S --> K\n    T --> L",
+    "sequence_diagram_mermaid": "sequenceDiagram\n    participant UM as UI管理器\n    participant WM as 窗口管理器\n    participant W as 窗口实例\n    participant GM as 几何管理器\n    participant OM as 操作系统\n    UM->>WM: 请求创建窗口\n    WM->>W: 初始化窗口\n    W->>GM: 请求几何计算\n    GM->>W: 返回尺寸位置\n    W->>OM: 创建系统窗口\n    OM-->>W: 窗口句柄\n    W->>WM: 注册窗口\n    WM->>UM: 返回窗口引用\n    UM->>W: 设置窗口属性\n    W->>OM: 应用窗口样式\n    UM->>W: 显示窗口\n    W->>OM: 显示系统窗口\n    loop 窗口生命周期\n        W->>WM: 发送状态更新\n        WM->>UM: 通知状态变化\n        alt 窗口操作\n            UM->>W: 执行操作请求\n            W->>OM: 调用系统接口\n            OM-->>W: 操作结果\n        end\n    end\n    alt 窗口关闭\n        UM->>W: 关闭窗口请求\n        W->>OM: 销毁系统窗口\n        W->>WM: 注销窗口\n        W->>WM: 清理资源\n        WM->>UM: 确认销毁完成\n    end"
+  },
+  "timestamp": 1761840726,
+  "prompt_hash": "eaf1c8ec79aac9e3e5737094f36ceef7",
+  "token_usage": {
+    "input_tokens": 344,
+    "output_tokens": 778,
+    "total_tokens": 1122
+  },
+  "model_name": null
+}

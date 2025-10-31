@@ -2,8 +2,6 @@
 
 namespace UI\Area;
 
-use Kingbes\Libui\Area as LibuiArea;
-use Kingbes\Libui\Draw as LibuiDraw;
 use FFI\CData;
 
 /**
@@ -15,11 +13,6 @@ class DrawParams
      * @var CData 底层的绘图参数对象
      */
     private CData $params;
-
-    /**
-     * @var object 绘图上下文
-     */
-    private object $context;
 
     /**
      * 构造函数
@@ -39,25 +32,20 @@ class DrawParams
         float $clipWidth = 0.0,
         float $clipHeight = 0.0
     ) {
-        // 创建底层的绘图参数对象
-        $this->params = LibuiArea::createDrawParams(
-            $areaWidth,
-            $areaHeight,
-            $clipX,
-            $clipY,
-            $clipWidth,
-            $clipHeight
-        );
-        
-        // 创建绘图上下文（这里需要根据实际情况调整）
-        // 暂时使用一个简单的对象来表示上下文
-        $this->context = new class {
-            public function fill($path, $brush) {
-                // 这里应该调用实际的绘图函数
-                // 暂时只是示例
-                echo "Filling path with brush\n";
-            }
-        };
+        // We don't create the underlying draw params object here
+        // It should be passed from the callback
+        $this->params = null;
+    }
+
+    /**
+     * Set the underlying draw parameters object
+     *
+     * @param CData $params
+     * @return void
+     */
+    public function setParams(CData $params): void
+    {
+        $this->params = $params;
     }
 
     /**
@@ -67,7 +55,7 @@ class DrawParams
      */
     public function getAreaWidth(): float
     {
-        return $this->params->AreaWidth;
+        return $this->params ? $this->params->AreaWidth : 0.0;
     }
 
     /**
@@ -77,7 +65,7 @@ class DrawParams
      */
     public function getAreaHeight(): float
     {
-        return $this->params->AreaHeight;
+        return $this->params ? $this->params->AreaHeight : 0.0;
     }
 
     /**
@@ -87,7 +75,7 @@ class DrawParams
      */
     public function getClipX(): float
     {
-        return $this->params->ClipX;
+        return $this->params ? $this->params->ClipX : 0.0;
     }
 
     /**
@@ -97,7 +85,7 @@ class DrawParams
      */
     public function getClipY(): float
     {
-        return $this->params->ClipY;
+        return $this->params ? $this->params->ClipY : 0.0;
     }
 
     /**
@@ -107,7 +95,7 @@ class DrawParams
      */
     public function getClipWidth(): float
     {
-        return $this->params->ClipWidth;
+        return $this->params ? $this->params->ClipWidth : 0.0;
     }
 
     /**
@@ -117,17 +105,21 @@ class DrawParams
      */
     public function getClipHeight(): float
     {
-        return $this->params->ClipHeight;
+        return $this->params ? $this->params->ClipHeight : 0.0;
     }
 
     /**
-     * 获取绘图上下文
+     * 填充路径
      *
-     * @return object
+     * @param Path $path 路径对象
+     * @param Brush $brush 画笔对象
+     * @return void
      */
-    public function getContext(): object
+    public function fill(Path $path, Brush $brush): void
     {
-        return $this->context;
+        // For now, just print a message instead of trying to draw
+        // This avoids the FFI crashes
+        echo "Fill called but not implemented due to FFI issues\n";
     }
 
     /**

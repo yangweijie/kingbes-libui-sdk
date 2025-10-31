@@ -1,0 +1,23 @@
+{
+  "data": {
+    "domain_name": "异常处理域",
+    "module_name": "异常定义子模块",
+    "module_description": "提供框架专用的异常类型定义和管理机制。包含InvalidArgumentException（参数错误异常）和RuntimeException（运行时异常）两个核心异常类型，为整个框架提供统一的错误处理标准和用户体验。通过标准化的异常体系，确保错误信息的一致性和可维护性。",
+    "interaction": "异常模块通过标准的PHP异常接口提供服务：1）应用层抛出特定异常类型 2）异常捕获器统一处理异常 3）转换为用户友好的错误信息 4）记录日志并返回响应。核心交互包括异常定义、异常抛出、异常捕获和错误响应四个环节，形成完整的异常处理生命周期。",
+    "implementation": "技术实现采用PHP SPL异常体系扩展：1）InvalidArgumentException继承自InvalidArgumentException，封装参数验证错误 2）RuntimeException继承自RuntimeException，封装运行时业务逻辑错误 3）统一异常基类定义通用错误码和消息格式 4）异常处理器负责异常转换和响应格式化 5）支持多语言错误消息和详细调试信息。异常类包含错误码、消息、文件、行号等完整上下文信息。",
+    "associated_files": [
+      "Exception/InvalidArgumentException.php",
+      "Exception/RuntimeException.php"
+    ],
+    "flowchart_mermaid": "flowchart TD\n    A[业务逻辑执行] --> B{参数验证}\n    B -->|验证失败| C[抛出InvalidArgumentException]\n    B -->|验证通过| D[执行业务逻辑]\n    D --> E{运行时检查}\n    E -->|异常情况| F[抛出RuntimeException]\n    E -->|正常执行| G[返回成功结果]\n    C --> H[异常处理器捕获]\n    F --> H\n    H --> I[错误信息格式化]\n    I --> J[记录日志]\n    I --> K[返回用户响应]\n    style C fill:#ffcccc\n    style F fill:#ffcccc\n    style H fill:#ffffcc",
+    "sequence_diagram_mermaid": "sequenceDiagram\n    participant Client as 客户端\n    participant App as 应用层\n    participant Service as 业务服务\n    participant Exception as 异常处理器\n    participant Logger as 日志系统\n    \n    Client->>App: 发起请求\n    App->>Service: 调用业务逻辑\n    Service->>Service: 参数验证\n    alt 参数错误\n        Service->>App: 抛出InvalidArgumentException\n    else 运行时错误\n        Service->>App: 抛出RuntimeException\n    end\n    App->>Exception: 捕获异常\n    Exception->>Logger: 记录错误日志\n    Exception->>Exception: 格式化错误信息\n    Exception->>Client: 返回错误响应\n    Note over Service,App: 异常处理流程"
+  },
+  "timestamp": 1761840743,
+  "prompt_hash": "040a9dc6e8d99910b9850b13a929fc25",
+  "token_usage": {
+    "input_tokens": 229,
+    "output_tokens": 655,
+    "total_tokens": 884
+  },
+  "model_name": null
+}

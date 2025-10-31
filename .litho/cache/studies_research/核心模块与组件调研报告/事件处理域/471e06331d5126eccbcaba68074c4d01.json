@@ -1,0 +1,22 @@
+{
+  "data": {
+    "domain_name": "事件处理域",
+    "module_name": "事件执行子模块",
+    "module_description": "事件执行子模块是事件处理域的核心组件，负责整个事件生命周期的管理。该模块实现了事件分发机制，能够接收来自各种事件源（如用户交互、系统通知等）的事件，并根据事件的类型和优先级进行智能分发。模块采用观察者模式设计，支持事件的异步处理和链式调用，确保事件处理的高效性和可扩展性。",
+    "interaction": "该模块提供标准化的事件接口：1)事件注册接口（registerEvent）：用于注册新的事件处理器；2)事件触发接口（dispatch）：用于分发事件到相应处理器；3)事件监听接口（addListener）：用于添加事件监听器；4)异步事件接口（dispatchAsync）：支持异步事件处理。通过事件总线模式实现模块间的解耦，支持事件传播的拦截和过滤机制。",
+    "implementation": "技术实现采用事件驱动架构，使用优先级队列管理事件分发顺序。核心组件包括：事件注册表（存储事件类型与处理器的映射关系）、事件分发器（负责事件的路由和分发）、处理器链（支持链式调用和责任链模式）。支持同步和异步两种处理模式，异步处理采用消息队列机制。实现事件过滤器和拦截器，支持事件的预处理和后处理。提供事件状态追踪和异常处理机制，确保事件处理的可靠性。",
+    "associated_files": [
+      "Executor.php"
+    ],
+    "flowchart_mermaid": "graph TD\n    A[事件源] -->|生成事件| B[事件注册表]\n    B -->|查询处理器| C[事件分发器]\n    C --> D{事件类型判断}\n    D -->|同步事件| E[同步处理器]\n    D -->|异步事件| F[异步处理器]\n    E --> G[处理器链执行]\n    F --> H[消息队列]\n    H --> I[异步工作线程]\n    I --> G\n    G --> J[事件结果]\n    G --> K{异常处理}\n    K -->|异常| L[错误处理器]\n    K -->|正常| J\n    L --> M[异常记录]\n    J --> N[事件完成]",
+    "sequence_diagram_mermaid": "sequenceDiagram\n    participant USR as 用户\n    participant UI as UI组件\n    participant REG as 事件注册表\n    participant DIS as 事件分发器\n    participant HAND as 事件处理器\n    \n    USR->>UI: 用户交互触发\n    UI->>DIS: 创建事件对象\n    DIS->>REG: 查询事件处理器\n    REG-->>DIS: 返回处理器列表\n    DIS->>HAND: 分发事件\n    alt 同步处理\n        HAND->>HAND: 执行处理逻辑\n        HAND-->>DIS: 返回处理结果\n    else 异步处理\n        DIS->>QUEUE: 添加到消息队列\n        QUEUE->>HAND: 异步执行处理\n        HAND-->>DIS: 异步结果回调\n    end\n    DIS-->>UI: 事件处理完成通知"
+  },
+  "timestamp": 1761840739,
+  "prompt_hash": "471e06331d5126eccbcaba68074c4d01",
+  "token_usage": {
+    "input_tokens": 252,
+    "output_tokens": 672,
+    "total_tokens": 924
+  },
+  "model_name": null
+}

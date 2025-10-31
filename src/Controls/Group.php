@@ -99,7 +99,7 @@ class Group extends Control
      */
     public function show(): void
     {
-        // 实现显示逻辑
+        Kingbes\Libui\Control::show($this->group);
     }
 
     /**
@@ -109,7 +109,7 @@ class Group extends Control
      */
     public function hide(): void
     {
-        // 实现隐藏逻辑
+        Kingbes\Libui\Control::hide($this->group);
     }
 
     /**

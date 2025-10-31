@@ -1,0 +1,39 @@
+{
+  "data": {
+    "domain_name": "UI组件管理域",
+    "module_name": "UI组件管理系统",
+    "module_description": "UI组件管理域是一个完整的用户界面组件库系统，采用面向对象设计模式，为开发者提供丰富的可重用UI组件。该系统采用分层架构设计，包含四个核心子模块：交互控件模块负责用户交互和事件处理；数据输入控件模块提供数据录入和验证功能；容器布局控件模块管理界面布局和控件组织；显示反馈控件模块负责信息展示和状态反馈。整个系统遵循统一的接口规范，支持事件驱动机制，提供灵活的配置选项和样式定制能力。",
+    "interaction": "UI组件管理域定义了统一的接口规范，包括：1）控件基接口（IControl）：定义所有控件的通用属性和方法；2）交互接口（IInteractive）：处理用户交互和事件触发；3）数据绑定接口（IDataBound）：支持数据双向绑定；4）容器接口（IContainer）：管理子控件的添加、删除和布局；5）样式接口（IStylable）：支持外观定制。组件间通过事件系统进行通信，包括点击、输入、焦点变化等事件类型。系统提供链式配置方法和批量属性设置功能。",
+    "implementation": "技术实现采用MVC架构模式，核心组件包括：1）控件基类（ControlBase）：实现通用功能和属性管理；2）事件系统（EventManager）：负责事件注册、分发和处理；3）布局管理器（LayoutManager）：处理控件的自动布局和定位；4）渲染引擎（RenderEngine）：负责控件的可视化呈现；5）样式系统（StyleManager）：管理控件外观和主题。数据输入控件实现输入验证器（InputValidator）进行数据校验，支持多种验证规则。容器控件实现布局算法，支持流式布局、网格布局、绝对定位等。系统采用设计模式包括：工厂模式创建控件、装饰器模式扩展功能、观察者模式处理事件、策略模式实现不同布局算法。",
+    "associated_files": [
+      "Controls/Button.php",
+      "Controls/Checkbox.php",
+      "Controls/Radio.php",
+      "Controls/Slider.php",
+      "Controls/Entry.php",
+      "Controls/Combobox.php",
+      "Controls/DateTimePicker.php",
+      "Controls/EditableCombobox.php",
+      "Controls/MultilineEntry.php",
+      "Controls/Spinbox.php",
+      "Controls/Form.php",
+      "Controls/Grid.php",
+      "Controls/Box.php",
+      "Controls/Tab.php",
+      "Controls/Group.php",
+      "Controls/Label.php",
+      "Controls/ProgressBar.php",
+      "Controls/Separator.php"
+    ],
+    "flowchart_mermaid": "graph TB\n    A[UI组件管理系统] --> B[交互控件模块]\n    A --> C[数据输入控件模块]\n    A --> D[容器布局控件模块]\n    A --> E[显示反馈控件模块]\n    \n    B --> B1[Button]\n    B --> B2[Checkbox]\n    B --> B3[Radio]\n    B --> B4[Slider]\n    \n    C --> C1[Entry]\n    C --> C2[Combobox]\n    C --> C3[DateTimePicker]\n    C --> C4[EditableCombobox]\n    C --> C5[MultilineEntry]\n    C --> C6[Spinbox]\n    \n    D --> D1[Form]\n    D --> D2[Grid]\n    D --> D3[Box]\n    D --> D4[Tab]\n    D --> D5[Group]\n    \n    E --> E1[Label]\n    E --> E2[ProgressBar]\n    E --> E3[Separator]\n    \n    F[核心基础设施] --> G[事件系统]\n    F --> H[布局管理器]\n    F --> I[渲染引擎]\n    F --> J[样式系统]\n    F --> K[数据验证器]\n    \n    A --> F\n    G --> B\n    G --> C\n    G --> D\n    G --> E",
+    "sequence_diagram_mermaid": "sequenceDiagram\n    participant D as Developer\n    participant M as UI组件管理器\n    participant C as 控件实例\n    participant E as 事件系统\n    participant L as 布局管理器\n    participant R as 渲染引擎\n    \n    D->>M: 创建控件实例\n    M->>C: 初始化控件\n    C->>E: 注册事件监听器\n    C->>L: 注册布局处理器\n    \n    D->>M: 配置控件属性\n    M->>C: 设置属性值\n    C->>R: 请求重绘\n    \n    rect rgb(240, 248, 255)\n        Note over C,E: 用户交互流程\n        C->>E: 触发点击事件\n        E->>C: 处理事件逻辑\n        C->>R: 更新视觉状态\n    end\n    \n    rect rgb(248, 255, 240)\n        Note over C,L: 布局更新流程\n        D->>M: 触发布局重算\n        M->>L: 执行布局算法\n        L->>C: 调整控件位置\n        C->>R: 应用新的布局\n    end\n    \n    D->>M: 销毁控件\n    M->>C: 释放资源\n    C->>E: 注销事件监听\n    C->>L: 注销布局处理器"
+  },
+  "timestamp": 1761840730,
+  "prompt_hash": "9e8a848215286333dea665963dd06867",
+  "token_usage": {
+    "input_tokens": 468,
+    "output_tokens": 1048,
+    "total_tokens": 1516
+  },
+  "model_name": null
+}

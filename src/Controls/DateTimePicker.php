@@ -4,7 +4,8 @@ namespace UI\Controls;
 
 use UI\Control;
 use Kingbes\Libui\DateTimePicker as LibuiDateTimePicker;
-use Kingbes\Libui\DateTime as LibuiDateTime;
+use Kingbes\Libui\DateTime;
+use Kingbes\Libui\Control as LibuiControl;
 use FFI\CData;
 
 /**
@@ -46,9 +47,9 @@ class DateTimePicker extends Control
     /**
      * 获取时间
      *
-     * @return LibuiDateTime
+     * @return DateTime
      */
-    public function getTime(): LibuiDateTime
+    public function getTime(): DateTime
     {
         return LibuiDateTimePicker::time($this->picker);
     }
@@ -56,10 +57,10 @@ class DateTimePicker extends Control
     /**
      * 设置时间
      *
-     * @param LibuiDateTime $time 时间
+     * @param DateTime $time 时间
      * @return void
      */
-    public function setTime(LibuiDateTime $time): void
+    public function setTime(DateTime $time): void
     {
         LibuiDateTimePicker::setTime($this->picker, $time);
     }
@@ -82,7 +83,7 @@ class DateTimePicker extends Control
      */
     public function show(): void
     {
-        // 实现显示逻辑
+        Kingbes\Libui\Control::show($this->picker);
     }
 
     /**
@@ -92,7 +93,7 @@ class DateTimePicker extends Control
      */
     public function hide(): void
     {
-        // 实现隐藏逻辑
+        Kingbes\Libui\Control::hide($this->picker);
     }
 
     /**
