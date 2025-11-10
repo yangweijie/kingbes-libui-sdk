@@ -1,0 +1,88 @@
+{
+  "data": {
+    "project_name": "PHP GUI Framework (src)",
+    "project_description": "基于PHP的图形用户界面(GUI)框架，提供完整的UI组件体系和绘图功能。该项目包含丰富的UI控件库(按钮、复选框、网格、表单等)、2D绘图系统(画笔、路径、颜色、字体等)、窗口管理和事件处理机制，为PHP开发者提供构建桌面应用程序的能力。",
+    "project_type": "Framework",
+    "business_value": "为PHP生态提供原生GUI开发能力，填补PHP在桌面应用开发领域的空白，使PHP开发者能够使用熟悉的语言构建跨平台桌面应用程序，降低学习成本，提高开发效率。",
+    "target_users": [
+      {
+        "name": "PHP开发者",
+        "description": "熟悉PHP语法，希望开发桌面GUI应用的开发者",
+        "needs": [
+          "简洁易用的API",
+          "丰富的UI组件",
+          "跨平台兼容性",
+          "与PHP生态无缝集成"
+        ]
+      },
+      {
+        "name": "企业开发者",
+        "description": "需要快速构建内部桌面工具和应用程序的企业团队",
+        "needs": [
+          "快速原型开发",
+          "标准化组件",
+          "良好的可维护性",
+          "企业级稳定性"
+        ]
+      },
+      {
+        "name": "教育工作者",
+        "description": "教授GUI编程的教师和学习编程的学生",
+        "needs": [
+          "清晰的学习曲线",
+          "丰富的示例",
+          "良好的文档",
+          "实践性教学工具"
+        ]
+      }
+    ],
+    "external_systems": [
+      {
+        "name": "PHP Runtime",
+        "description": "PHP解释器运行时环境，执行PHP代码",
+        "interaction_type": "依赖"
+      },
+      {
+        "name": "GUI Toolkit Backend",
+        "description": "底层GUI工具包(如GTK、Qt或其他图形库)",
+        "interaction_type": "集成"
+      },
+      {
+        "name": "Web Server",
+        "description": "Web服务器环境，可能需要支持Web部署",
+        "interaction_type": "可选集成"
+      },
+      {
+        "name": "Database Systems",
+        "description": "数据库系统，用于数据持久化",
+        "interaction_type": "可选集成"
+      }
+    ],
+    "system_boundary": {
+      "scope": "提供完整的PHP GUI开发框架，包括UI组件、绘图系统、事件处理和窗口管理",
+      "included_components": [
+        "UI控件库(Controls)",
+        "绘图系统(Draw)",
+        "核心框架(Area/Control/UI/Window)",
+        "异常处理(Exception)",
+        "事件处理(Executor/Key)",
+        "菜单系统(Menu)"
+      ],
+      "excluded_components": [
+        "数据库访问层",
+        "Web服务器",
+        "第三方UI框架",
+        "特定平台的原生扩展"
+      ]
+    },
+    "confidence_score": 0.9
+  },
+  "timestamp": 1761840612,
+  "prompt_hash": "9d557f03da2c35d68841c9d937b80511",
+  "token_usage": {
+    "input_tokens": 514,
+    "output_tokens": 551,
+    "total_tokens": 1065
+  },
+  "model_name": null
+}

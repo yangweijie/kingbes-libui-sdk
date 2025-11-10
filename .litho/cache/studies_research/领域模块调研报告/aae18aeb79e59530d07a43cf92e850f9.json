@@ -1,0 +1,531 @@
+{
+  "data": {
+    "domain_modules": [
+      {
+        "name": "UI组件管理域",
+        "description": "提供完整的用户界面组件库，包括输入控件（按钮、输入框、复选框等）、容器控件（网格、组合框、分组等）和显示控件（标签、进度条等）。该领域封装了所有UI交互逻辑，为开发者提供直观易用的界面构建能力。",
+        "domain_type": "表现层",
+        "sub_modules": [
+          {
+            "name": "交互控件子模块",
+            "description": "交互式控件，响应用户操作并触发事件",
+            "code_paths": [
+              "Controls/Button.php",
+              "Controls/Checkbox.php",
+              "Controls/Radio.php",
+              "Controls/Slider.php"
+            ],
+            "key_functions": [
+              "用户交互",
+              "事件触发",
+              "状态管理"
+            ],
+            "importance": 10.0
+          },
+          {
+            "name": "数据输入控件子模块",
+            "description": "数据输入和编辑控件，提供文本和数值输入能力",
+            "code_paths": [
+              "Controls/Entry.php",
+              "Controls/Combobox.php",
+              "Controls/DateTimePicker.php",
+              "Controls/EditableCombobox.php",
+              "Controls/MultilineEntry.php",
+              "Controls/Spinbox.php"
+            ],
+            "key_functions": [
+              "数据输入",
+              "输入验证",
+              "格式化显示"
+            ],
+            "importance": 9.0
+          },
+          {
+            "name": "容器布局控件子模块",
+            "description": "容器和布局控件，管理子控件的排列和组织",
+            "code_paths": [
+              "Controls/Form.php",
+              "Controls/Grid.php",
+              "Controls/Box.php",
+              "Controls/Tab.php",
+              "Controls/Group.php"
+            ],
+            "key_functions": [
+              "布局管理",
+              "子控件组织",
+              "容器逻辑"
+            ],
+            "importance": 8.0
+          },
+          {
+            "name": "显示反馈控件子模块",
+            "description": "显示和反馈控件，呈现信息和状态",
+            "code_paths": [
+              "Controls/Label.php",
+              "Controls/ProgressBar.php",
+              "Controls/Separator.php"
+            ],
+            "key_functions": [
+              "信息显示",
+              "状态反馈",
+              "界面美化"
+            ],
+            "importance": 7.0
+          }
+        ],
+        "code_paths": [
+          "Controls/Button.php",
+          "Controls/Checkbox.php",
+          "Controls/Entry.php",
+          "Controls/Form.php",
+          "Controls/Grid.php",
+          "Controls/Label.php",
+          "Controls/ProgressBar.php",
+          "Controls/Radio.php",
+          "Controls/Slider.php",
+          "Controls/Spinbox.php",
+          "Controls/Tab.php",
+          "Controls/Combobox.php",
+          "Controls/DateTimePicker.php",
+          "Controls/EditableCombobox.php",
+          "Controls/MultilineEntry.php",
+          "Controls/Box.php",
+          "Controls/Group.php",
+          "Controls/Separator.php"
+        ],
+        "importance": 9.0,
+        "complexity": 8.0
+      },
+      {
+        "name": "图形渲染域",
+        "description": "提供完整的2D图形渲染系统，包括绘图路径、画笔、画刷、颜色、变换矩阵、文本排版等功能。该系统为UI控件提供底层的图形绘制能力，支持复杂的视觉效果和自定义渲染。",
+        "domain_type": "渲染层",
+        "sub_modules": [
+          {
+            "name": "绘图路径子模块",
+            "description": "定义绘图路径和线条样式",
+            "code_paths": [
+              "Draw/Path.php",
+              "Draw/Stroke.php",
+              "Draw/Line/Cap.php",
+              "Draw/Line/Join.php"
+            ],
+            "key_functions": [
+              "路径定义",
+              "线条样式",
+              "几何绘制"
+            ],
+            "importance": 9.0
+          },
+          {
+            "name": "色彩和画刷子模块",
+            "description": "颜色填充和渐变效果",
+            "code_paths": [
+              "Draw/Brush.php",
+              "Draw/Brush/LinearGradient.php",
+              "Draw/Brush/RadialGradient.php",
+              "Draw/Color.php"
+            ],
+            "key_functions": [
+              "颜色管理",
+              "渐变效果",
+              "填充样式"
+            ],
+            "importance": 9.0
+          },
+          {
+            "name": "文本渲染子模块",
+            "description": "文本字体、排版和对齐系统",
+            "code_paths": [
+              "Draw/Text/Font.php",
+              "Draw/Text/Font/Descriptor.php",
+              "Draw/Text/Font/Italic.php",
+              "Draw/Text/Font/Stretch.php",
+              "Draw/Text/Font/Weight.php",
+              "Draw/Text/Layout.php",
+              "Draw/Text/Align.php"
+            ],
+            "key_functions": [
+              "字体管理",
+              "文本排版",
+              "文本对齐"
+            ],
+            "importance": 8.0
+          },
+          {
+            "name": "变换矩阵子模块",
+            "description": "几何变换矩阵",
+            "code_paths": [
+              "Draw/Matrix.php"
+            ],
+            "key_functions": [
+              "坐标变换",
+              "缩放旋转",
+              "仿射变换"
+            ],
+            "importance": 7.0
+          }
+        ],
+        "code_paths": [
+          "Draw/Path.php",
+          "Draw/Pen.php",
+          "Draw/Brush.php",
+          "Draw/Brush/LinearGradient.php",
+          "Draw/Brush/RadialGradient.php",
+          "Draw/Color.php",
+          "Draw/Matrix.php",
+          "Draw/Stroke.php",
+          "Draw/Line/Cap.php",
+          "Draw/Line/Join.php",
+          "Draw/Text/Font.php",
+          "Draw/Text/Font/Descriptor.php",
+          "Draw/Text/Font/Italic.php",
+          "Draw/Text/Font/Stretch.php",
+          "Draw/Text/Font/Weight.php",
+          "Draw/Text/Layout.php",
+          "Draw/Text/Align.php"
+        ],
+        "importance": 9.0,
+        "complexity": 9.0
+      },
+      {
+        "name": "窗口管理域",
+        "description": "管理GUI应用程序的窗口、区域和控件生命周期。包括窗口创建、大小调整、坐标系统、控件管理和整体UI框架的协调。该领域是整个GUI框架的核心管理层。",
+        "domain_type": "核心业务层",
+        "sub_modules": [
+          {
+            "name": "窗口管理子模块",
+            "description": "顶层窗口管理",
+            "code_paths": [
+              "Window.php"
+            ],
+            "key_functions": [
+              "窗口创建",
+              "窗口生命周期",
+              "窗口属性管理"
+            ],
+            "importance": 10.0
+          },
+          {
+            "name": "区域控件子模块",
+            "description": "绘制区域和控件管理",
+            "code_paths": [
+              "Area.php",
+              "Control.php"
+            ],
+            "key_functions": [
+              "区域定义",
+              "控件层次",
+              "重绘管理"
+            ],
+            "importance": 9.0
+          },
+          {
+            "name": "框架协调子模块",
+            "description": "整体UI框架协调",
+            "code_paths": [
+              "UI.php"
+            ],
+            "key_functions": [
+              "框架初始化",
+              "全局状态管理",
+              "系统协调"
+            ],
+            "importance": 9.0
+          },
+          {
+            "name": "几何数据子模块",
+            "description": "几何数据结构",
+            "code_paths": [
+              "Point.php",
+              "Size.php"
+            ],
+            "key_functions": [
+              "坐标表示",
+              "尺寸定义",
+              "几何计算"
+            ],
+            "importance": 7.0
+          }
+        ],
+        "code_paths": [
+          "Window.php",
+          "Area.php",
+          "Control.php",
+          "UI.php",
+          "Point.php",
+          "Size.php"
+        ],
+        "importance": 10.0,
+        "complexity": 8.0
+      },
+      {
+        "name": "事件处理域",
+        "description": "处理用户交互事件和键盘输入。包括事件的捕获、分发和响应机制。该领域确保用户操作能够正确地传递给相应的UI组件进行处理。",
+        "domain_type": "交互层",
+        "sub_modules": [
+          {
+            "name": "事件执行子模块",
+            "description": "事件执行和分发机制",
+            "code_paths": [
+              "Executor.php"
+            ],
+            "key_functions": [
+              "事件分发",
+              "处理器调用",
+              "异步事件处理"
+            ],
+            "importance": 9.0
+          },
+          {
+            "name": "键盘处理子模块",
+            "description": "键盘事件处理",
+            "code_paths": [
+              "Key.php"
+            ],
+            "key_functions": [
+              "键盘输入",
+              "按键映射",
+              "快捷键处理"
+            ],
+            "importance": 7.0
+          }
+        ],
+        "code_paths": [
+          "Executor.php",
+          "Key.php"
+        ],
+        "importance": 8.0,
+        "complexity": 7.0
+      },
+      {
+        "name": "菜单系统域",
+        "description": "实现菜单系统的创建和管理。包括菜单栏、下拉菜单、上下文菜单等。为用户提供标准化的操作入口和功能组织方式。",
+        "domain_type": "表现层",
+        "sub_modules": [
+          {
+            "name": "菜单管理子模块",
+            "description": "菜单结构和项目管理",
+            "code_paths": [
+              "Menu.php",
+              "MenuItem.php"
+            ],
+            "key_functions": [
+              "菜单创建",
+              "菜单项管理",
+              "菜单事件处理"
+            ],
+            "importance": 8.0
+          }
+        ],
+        "code_paths": [
+          "Menu.php",
+          "MenuItem.php"
+        ],
+        "importance": 7.0,
+        "complexity": 6.0
+      },
+      {
+        "name": "异常处理域",
+        "description": "提供统一的异常处理机制。定义了框架特有的异常类型，包括参数错误异常和运行时异常，确保错误处理的标准化和用户体验的一致性。",
+        "domain_type": "基础设施层",
+        "sub_modules": [
+          {
+            "name": "异常定义子模块",
+            "description": "框架专用异常类型",
+            "code_paths": [
+              "Exception/InvalidArgumentException.php",
+              "Exception/RuntimeException.php"
+            ],
+            "key_functions": [
+              "错误定义",
+              "异常抛出",
+              "错误信息管理"
+            ],
+            "importance": 7.0
+          }
+        ],
+        "code_paths": [
+          "Exception/InvalidArgumentException.php",
+          "Exception/RuntimeException.php"
+        ],
+        "importance": 6.0,
+        "complexity": 5.0
+      }
+    ],
+    "domain_relations": [
+      {
+        "from_domain": "UI组件管理域",
+        "to_domain": "窗口管理域",
+        "relation_type": "依赖",
+        "strength": 9.0,
+        "description": "UI控件需要窗口管理域提供绘制区域、生命周期管理和事件处理基础，所有控件都需要依赖窗口管理系统才能正常工作"
+      },
+      {
+        "from_domain": "UI组件管理域",
+        "to_domain": "图形渲染域",
+        "relation_type": "依赖",
+        "strength": 8.0,
+        "description": "UI控件的可视化显示依赖图形渲染域的绘制能力，控件需要使用画笔、路径、颜色等组件来渲染用户界面"
+      },
+      {
+        "from_domain": "事件处理域",
+        "to_domain": "UI组件管理域",
+        "relation_type": "服务调用",
+        "strength": 8.0,
+        "description": "事件处理域将用户交互事件分发给相应的UI控件，触发控件的响应逻辑和状态更新"
+      },
+      {
+        "from_domain": "窗口管理域",
+        "to_domain": "图形渲染域",
+        "relation_type": "依赖",
+        "strength": 7.0,
+        "description": "窗口和控件的显示需要图形渲染域提供底层绘制能力，窗口管理通过调用渲染系统来更新界面显示"
+      },
+      {
+        "from_domain": "菜单系统域",
+        "to_domain": "窗口管理域",
+        "relation_type": "依赖",
+        "strength": 6.0,
+        "description": "菜单系统需要依附于窗口而存在，依赖窗口管理域提供菜单的容器和管理功能"
+      },
+      {
+        "from_domain": "窗口管理域",
+        "to_domain": "事件处理域",
+        "relation_type": "依赖",
+        "strength": 6.0,
+        "description": "窗口的状态变化和用户交互需要事件处理域进行管理和分发，确保窗口能够响应各种操作事件"
+      },
+      {
+        "from_domain": "UI组件管理域",
+        "to_domain": "异常处理域",
+        "relation_type": "工具支撑",
+        "strength": 5.0,
+        "description": "UI组件在处理用户输入和执行操作时，可能需要抛出异常来错误处理，依赖异常处理域提供统一的错误管理机制"
+      }
+    ],
+    "business_flows": [
+      {
+        "name": "UI交互处理流程",
+        "description": "用户通过各种UI控件（按钮、输入框等）与应用程序交互，控件触发事件，事件由Executor处理并更新相应的UI状态，最终实现用户与应用程序的双向交互",
+        "steps": [
+          {
+            "step": 1,
+            "domain_module": "UI组件管理域",
+            "sub_module": null,
+            "operation": "响应用户操作，触发相应事件",
+            "code_entry_point": "Controls/*.php"
+          },
+          {
+            "step": 2,
+            "domain_module": "事件处理域",
+            "sub_module": null,
+            "operation": "接收并分发事件到目标处理器",
+            "code_entry_point": "Executor.php"
+          },
+          {
+            "step": 3,
+            "domain_module": "窗口管理域",
+            "sub_module": null,
+            "operation": "管理控件的绘制区域和生命周期",
+            "code_entry_point": "Area.php, Control.php"
+          },
+          {
+            "step": 4,
+            "domain_module": "图形渲染域",
+            "sub_module": null,
+            "operation": "执行实际的可视化渲染",
+            "code_entry_point": "Draw/*.php"
+          }
+        ],
+        "entry_point": "用户操作UI控件",
+        "importance": 10.0,
+        "involved_domains_count": 4
+      },
+      {
+        "name": "窗口创建与初始化流程",
+        "description": "从配置或编程接口开始，创建窗口实例，设置窗口属性、添加控件和菜单，最终显示窗口并进入事件循环，实现GUI应用的启动过程",
+        "steps": [
+          {
+            "step": 1,
+            "domain_module": "窗口管理域",
+            "sub_module": null,
+            "operation": "创建主窗口实例",
+            "code_entry_point": "Window.php"
+          },
+          {
+            "step": 2,
+            "domain_module": "菜单系统域",
+            "sub_module": null,
+            "operation": "配置窗口菜单栏",
+            "code_entry_point": "Menu.php, MenuItem.php"
+          },
+          {
+            "step": 3,
+            "domain_module": "UI组件管理域",
+            "sub_module": null,
+            "operation": "添加和配置UI控件",
+            "code_entry_point": "Controls/*.php"
+          },
+          {
+            "step": 4,
+            "domain_module": "窗口管理域",
+            "sub_module": null,
+            "operation": "建立控件的绘制区域",
+            "code_entry_point": "Area.php"
+          },
+          {
+            "step": 5,
+            "domain_module": "图形渲染域",
+            "sub_module": null,
+            "operation": "执行窗口和控件的初始化渲染",
+            "code_entry_point": "Draw/*.php"
+          }
+        ],
+        "entry_point": "创建窗口实例",
+        "importance": 9.0,
+        "involved_domains_count": 5
+      },
+      {
+        "name": "图形绘制与渲染流程",
+        "description": "根据用户操作或程序逻辑触发重绘请求，通过Draw系统中的画笔、路径、颜色、字体等组件执行具体的图形绘制操作，最终更新窗口显示内容",
+        "steps": [
+          {
+            "step": 1,
+            "domain_module": "窗口管理域",
+            "sub_module": null,
+            "operation": "接收重绘请求并触发绘制",
+            "code_entry_point": "Window.php, Control.php"
+          },
+          {
+            "step": 2,
+            "domain_module": "图形渲染域",
+            "sub_module": null,
+            "operation": "配置绘制参数和样式",
+            "code_entry_point": "Draw/Path.php, Draw/Pen.php, Draw/Brush/*.php"
+          },
+          {
+            "step": 3,
+            "domain_module": "图形渲染域",
+            "sub_module": null,
+            "operation": "执行具体的图形和文本绘制操作",
+            "code_entry_point": "Draw/Text/*.php, Draw/Color.php, Draw/Matrix.php"
+          }
+        ],
+        "entry_point": "触发重绘请求",
+        "importance": 8.0,
+        "involved_domains_count": 3
+      }
+    ],
+    "architecture_summary": "这是一个PHP GUI框架项目，采用分层架构设计。主要分为表现层（UI控件和布局）、图形渲染层（绘图系统）、核心框架层（窗口和事件管理）和基础设施层（异常处理）。技术选型上，项目提供跨平台GUI开发能力，通过丰富的控件库和强大的绘图系统，为PHP开发者构建桌面应用提供了完整的技术栈。项目架构体现了良好的模块化设计，各层职责明确，依赖关系清晰，具有良好的可扩展性和维护性。",
+    "confidence_score": 9.0
+  },
+  "timestamp": 1761840657,
+  "prompt_hash": "aae18aeb79e59530d07a43cf92e850f9",
+  "token_usage": {
+    "input_tokens": 1114,
+    "output_tokens": 2892,
+    "total_tokens": 4006
+  },
+  "model_name": null
+}

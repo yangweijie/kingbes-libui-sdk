@@ -1,0 +1,577 @@
+{
+  "data": {
+    "project_name": "src",
+    "root_path": "./src",
+    "directories": [
+      {
+        "path": "./src\\Area",
+        "name": "Area",
+        "file_count": 1,
+        "subdirectory_count": 0,
+        "total_size": 2823,
+        "importance_score": 0.0
+      },
+      {
+        "path": "./src\\Controls",
+        "name": "Controls",
+        "file_count": 18,
+        "subdirectory_count": 0,
+        "total_size": 41377,
+        "importance_score": 0.2
+      },
+      {
+        "path": "./src\\Draw\\Brush",
+        "name": "Brush",
+        "file_count": 3,
+        "subdirectory_count": 0,
+        "total_size": 4872,
+        "importance_score": 0.0
+      },
+      {
+        "path": "./src\\Draw\\Line",
+        "name": "Line",
+        "file_count": 2,
+        "subdirectory_count": 0,
+        "total_size": 600,
+        "importance_score": 0.0
+      },
+      {
+        "path": "./src\\Draw\\Text\\Font",
+        "name": "Font",
+        "file_count": 4,
+        "subdirectory_count": 0,
+        "total_size": 5038,
+        "importance_score": 0.0
+      },
+      {
+        "path": "./src\\Draw\\Text",
+        "name": "Text",
+        "file_count": 3,
+        "subdirectory_count": 1,
+        "total_size": 5648,
+        "importance_score": 0.0
+      },
+      {
+        "path": "./src\\Draw",
+        "name": "Draw",
+        "file_count": 6,
+        "subdirectory_count": 3,
+        "total_size": 23120,
+        "importance_score": 0.30000000000000004
+      },
+      {
+        "path": "./src\\Exception",
+        "name": "Exception",
+        "file_count": 2,
+        "subdirectory_count": 0,
+        "total_size": 480,
+        "importance_score": 0.0
+      }
+    ],
+    "files": [
+      {
+        "path": "Area\\DrawParams.php",
+        "name": "DrawParams.php",
+        "size": 2823,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761815783"
+      },
+      {
+        "path": "Area.php",
+        "name": "Area.php",
+        "size": 1976,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761815656"
+      },
+      {
+        "path": "Control.php",
+        "name": "Control.php",
+        "size": 450,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.3,
+        "complexity_score": 0.0,
+        "last_modified": "1761727813"
+      },
+      {
+        "path": "Controls\\Box.php",
+        "name": "Box.php",
+        "size": 1992,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761727861"
+      },
+      {
+        "path": "Controls\\Button.php",
+        "name": "Button.php",
+        "size": 1668,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761727831"
+      },
+      {
+        "path": "Controls\\Checkbox.php",
+        "name": "Checkbox.php",
+        "size": 2167,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761728092"
+      },
+      {
+        "path": "Controls\\Combobox.php",
+        "name": "Combobox.php",
+        "size": 2916,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761728169"
+      },
+      {
+        "path": "Controls\\DateTimePicker.php",
+        "name": "DateTimePicker.php",
+        "size": 2168,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761749718"
+      },
+      {
+        "path": "Controls\\EditableCombobox.php",
+        "name": "EditableCombobox.php",
+        "size": 2161,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761728185"
+      },
+      {
+        "path": "Controls\\Entry.php",
+        "name": "Entry.php",
+        "size": 2591,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761728075"
+      },
+      {
+        "path": "Controls\\Form.php",
+        "name": "Form.php",
+        "size": 2100,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761749670"
+      },
+      {
+        "path": "Controls\\Grid.php",
+        "name": "Grid.php",
+        "size": 4175,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761786561"
+      },
+      {
+        "path": "Controls\\Group.php",
+        "name": "Group.php",
+        "size": 2197,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761749684"
+      },
+      {
+        "path": "Controls\\Label.php",
+        "name": "Label.php",
+        "size": 1333,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761728063"
+      },
+      {
+        "path": "Controls\\MultilineEntry.php",
+        "name": "MultilineEntry.php",
+        "size": 2616,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761749698"
+      },
+      {
+        "path": "Controls\\ProgressBar.php",
+        "name": "ProgressBar.php",
+        "size": 1432,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761728150"
+      },
+      {
+        "path": "Controls\\Radio.php",
+        "name": "Radio.php",
+        "size": 1958,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761728199"
+      },
+      {
+        "path": "Controls\\Separator.php",
+        "name": "Separator.php",
+        "size": 1981,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761749706"
+      },
+      {
+        "path": "Controls\\Slider.php",
+        "name": "Slider.php",
+        "size": 2717,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761728135"
+      },
+      {
+        "path": "Controls\\Spinbox.php",
+        "name": "Spinbox.php",
+        "size": 1727,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761728112"
+      },
+      {
+        "path": "Controls\\Tab.php",
+        "name": "Tab.php",
+        "size": 3478,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761728224"
+      },
+      {
+        "path": "Draw\\Brush\\Gradient.php",
+        "name": "Gradient.php",
+        "size": 3438,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761744890"
+      },
+      {
+        "path": "Draw\\Brush\\LinearGradient.php",
+        "name": "LinearGradient.php",
+        "size": 633,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.3,
+        "complexity_score": 0.0,
+        "last_modified": "1761744895"
+      },
+      {
+        "path": "Draw\\Brush\\RadialGradient.php",
+        "name": "RadialGradient.php",
+        "size": 801,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.3,
+        "complexity_score": 0.0,
+        "last_modified": "1761744900"
+      },
+      {
+        "path": "Draw\\Brush.php",
+        "name": "Brush.php",
+        "size": 5498,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761744877"
+      },
+      {
+        "path": "Draw\\Color.php",
+        "name": "Color.php",
+        "size": 4037,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761744858"
+      },
+      {
+        "path": "Draw\\Line\\Cap.php",
+        "name": "Cap.php",
+        "size": 297,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.3,
+        "complexity_score": 0.0,
+        "last_modified": "1761744697"
+      },
+      {
+        "path": "Draw\\Line\\Join.php",
+        "name": "Join.php",
+        "size": 303,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.3,
+        "complexity_score": 0.0,
+        "last_modified": "1761744701"
+      },
+      {
+        "path": "Draw\\Matrix.php",
+        "name": "Matrix.php",
+        "size": 5492,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761747043"
+      },
+      {
+        "path": "Draw\\Path.php",
+        "name": "Path.php",
+        "size": 4583,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761747058"
+      },
+      {
+        "path": "Draw\\Pen.php",
+        "name": "Pen.php",
+        "size": 700,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.3,
+        "complexity_score": 0.0,
+        "last_modified": "1761747010"
+      },
+      {
+        "path": "Draw\\Stroke.php",
+        "name": "Stroke.php",
+        "size": 2810,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761747068"
+      },
+      {
+        "path": "Draw\\Text\\Align.php",
+        "name": "Align.php",
+        "size": 330,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.3,
+        "complexity_score": 0.0,
+        "last_modified": "1761744602"
+      },
+      {
+        "path": "Draw\\Text\\Font\\Descriptor.php",
+        "name": "Descriptor.php",
+        "size": 2925,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761744310"
+      },
+      {
+        "path": "Draw\\Text\\Font\\Italic.php",
+        "name": "Italic.php",
+        "size": 332,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.3,
+        "complexity_score": 0.0,
+        "last_modified": "1761744609"
+      },
+      {
+        "path": "Draw\\Text\\Font\\Stretch.php",
+        "name": "Stretch.php",
+        "size": 807,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.3,
+        "complexity_score": 0.0,
+        "last_modified": "1761744614"
+      },
+      {
+        "path": "Draw\\Text\\Font\\Weight.php",
+        "name": "Weight.php",
+        "size": 974,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.3,
+        "complexity_score": 0.0,
+        "last_modified": "1761744606"
+      },
+      {
+        "path": "Draw\\Text\\Font.php",
+        "name": "Font.php",
+        "size": 2964,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761747079"
+      },
+      {
+        "path": "Draw\\Text\\Layout.php",
+        "name": "Layout.php",
+        "size": 2354,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761747089"
+      },
+      {
+        "path": "Exception\\InvalidArgumentException.php",
+        "name": "InvalidArgumentException.php",
+        "size": 257,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.3,
+        "complexity_score": 0.0,
+        "last_modified": "1761744669"
+      },
+      {
+        "path": "Exception\\RuntimeException.php",
+        "name": "RuntimeException.php",
+        "size": 223,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.3,
+        "complexity_score": 0.0,
+        "last_modified": "1761744671"
+      },
+      {
+        "path": "Executor.php",
+        "name": "Executor.php",
+        "size": 2134,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761747019"
+      },
+      {
+        "path": "Key.php",
+        "name": "Key.php",
+        "size": 3152,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761744666"
+      },
+      {
+        "path": "Menu.php",
+        "name": "Menu.php",
+        "size": 2037,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761728854"
+      },
+      {
+        "path": "MenuItem.php",
+        "name": "MenuItem.php",
+        "size": 1750,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761728873"
+      },
+      {
+        "path": "Point.php",
+        "name": "Point.php",
+        "size": 1269,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761728810"
+      },
+      {
+        "path": "Size.php",
+        "name": "Size.php",
+        "size": 1375,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761728828"
+      },
+      {
+        "path": "UI.php",
+        "name": "UI.php",
+        "size": 305,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.3,
+        "complexity_score": 0.0,
+        "last_modified": "1761749987"
+      },
+      {
+        "path": "Window.php",
+        "name": "Window.php",
+        "size": 5998,
+        "extension": "php",
+        "is_core": false,
+        "importance_score": 0.5,
+        "complexity_score": 0.0,
+        "last_modified": "1761727804"
+      }
+    ],
+    "total_files": 49,
+    "total_directories": 8,
+    "file_types": {
+      "php": 49
+    },
+    "size_distribution": {
+      "small": 36,
+      "tiny": 13
+    }
+  },
+  "timestamp": 1761840476,
+  "prompt_hash": "1a6e396a5212bff0c18cb8141f35c40a",
+  "token_usage": null,
+  "model_name": null
+}

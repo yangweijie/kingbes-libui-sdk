@@ -1,0 +1,18 @@
+{
+  "data": {
+    "core_dependencies": [],
+    "architecture_layers": [],
+    "key_insights": [
+      "需要提供具体的代码内容才能进行架构分析",
+      "请提供项目的模块结构、依赖关系和代码组织信息"
+    ]
+  },
+  "timestamp": 1761840601,
+  "prompt_hash": "d9b1e0b9422749e428da72380dbab5db",
+  "token_usage": {
+    "input_tokens": 155,
+    "output_tokens": 96,
+    "total_tokens": 251
+  },
+  "model_name": null
+}

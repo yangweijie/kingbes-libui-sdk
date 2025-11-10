@@ -1,0 +1,194 @@
+{
+  "data": {
+    "cli_boundaries": [
+      {
+        "command": "php-ui",
+        "description": "PHP GUI框架启动命令，用于初始化和运行桌面应用程序",
+        "arguments": [
+          {
+            "name": "--version",
+            "description": "显示版本信息",
+            "required": false,
+            "default_value": null,
+            "value_type": "boolean"
+          },
+          {
+            "name": "--help",
+            "description": "显示帮助信息",
+            "required": false,
+            "default_value": null,
+            "value_type": "boolean"
+          },
+          {
+            "name": "--config",
+            "description": "指定配置文件路径",
+            "required": false,
+            "default_value": null,
+            "value_type": "string"
+          }
+        ],
+        "options": [
+          {
+            "name": "--version",
+            "short_name": "-v",
+            "description": "显示框架版本号",
+            "required": false,
+            "default_value": null,
+            "value_type": "boolean"
+          },
+          {
+            "name": "--help",
+            "short_name": "-h",
+            "description": "显示使用帮助",
+            "required": false,
+            "default_value": null,
+            "value_type": "boolean"
+          },
+          {
+            "name": "--config",
+            "short_name": "-c",
+            "description": "指定应用程序配置文件",
+            "required": false,
+            "default_value": null,
+            "value_type": "string"
+          }
+        ],
+        "examples": [
+          "php-ui --version",
+          "php-ui --config=/path/to/config.php",
+          "php-ui --help"
+        ],
+        "source_location": "UI.php"
+      },
+      {
+        "command": "php-ui:run",
+        "description": "执行指定的GUI应用程序脚本",
+        "arguments": [
+          {
+            "name": "script",
+            "description": "要执行的PHP GUI脚本文件",
+            "required": true,
+            "default_value": null,
+            "value_type": "string"
+          }
+        ],
+        "options": [
+          {
+            "name": "--dev",
+            "short_name": "-d",
+            "description": "开发模式，提供详细调试信息",
+            "required": false,
+            "default_value": null,
+            "value_type": "boolean"
+          },
+          {
+            "name": "--debug",
+            "short_name": "-D",
+            "description": "启用调试模式",
+            "required": false,
+            "default_value": null,
+            "value_type": "boolean"
+          }
+        ],
+        "examples": [
+          "php-ui:run application.php",
+          "php-ui:run /path/to/app.php --dev"
+        ],
+        "source_location": "Executor.php"
+      }
+    ],
+    "api_boundaries": [],
+    "router_boundaries": [
+      {
+        "path": "/window/{windowId}/control/{controlId}",
+        "description": "窗口内控件路由，用于访问和管理特定窗口中的控件",
+        "source_location": "Control.php",
+        "params": [
+          {
+            "key": "windowId",
+            "value_type": "string",
+            "description": "窗口唯一标识符"
+          },
+          {
+            "key": "controlId",
+            "value_type": "string",
+            "description": "控件唯一标识符"
+          }
+        ]
+      },
+      {
+        "path": "/application/window",
+        "description": "应用程序窗口管理路由，用于创建和管理主窗口",
+        "source_location": "Window.php",
+        "params": []
+      },
+      {
+        "path": "/draw/area/{areaId}",
+        "description": "绘图区域路由，用于访问特定的绘图区域",
+        "source_location": "Area.php",
+        "params": [
+          {
+            "key": "areaId",
+            "value_type": "string",
+            "description": "绘图区域唯一标识符"
+          }
+        ]
+      }
+    ],
+    "integration_suggestions": [
+      {
+        "integration_type": "事件处理集成",
+        "description": "通过Executor类实现事件监听和处理机制，支持异步事件处理",
+        "example_code": "// 事件监听和处理的集成示例\n$executor = new Executor();\n$executor->on('button_click', function($event) {\n    // 处理按钮点击事件\n    echo \"按钮被点击: \" . $event->getButton()->getText();\n});\n\n// 事件触发\n$executor->trigger('button_click', new Event(['button' => $button]));",
+        "best_practices": [
+          "使用异步事件处理避免界面阻塞",
+          "实现事件取消机制支持用户操作回滚",
+          "提供事件链支持复杂交互场景",
+          "添加事件过滤器实现条件触发"
+        ]
+      },
+      {
+        "integration_type": "绘图系统集成",
+        "description": "集成2D绘图功能，支持自定义UI绘制和图表渲染",
+        "example_code": "// 绘图系统的集成示例\n$brush = new Brush(new Color(255, 0, 0));\n$path = new Path();\n$path->moveTo(10, 10);\n$path->lineTo(100, 100);\n$area = new Area();\n$area->draw($brush, $path);\n\n// 渐变效果\n$gradient = new LinearGradient(new Point(0, 0), new Point(200, 0));\n$gradient->addColorStop(0, new Color(255, 255, 255));\n$gradient->addColorStop(1, new Color(0, 0, 255));\n$brush->setGradient($gradient);",
+        "best_practices": [
+          "缓存绘图对象提高性能",
+          "使用离屏绘制减少闪烁",
+          "合理管理颜色和字体资源",
+          "实现分层绘制管理复杂UI"
+        ]
+      },
+      {
+        "integration_type": "UI控件集成",
+        "description": "集成完整的UI控件库，支持复杂用户界面构建",
+        "example_code": "// UI控件的集成示例\n$form = new Form();\n$entry = new Entry();\n$entry->setPlaceholder(\"请输入内容\");\n$button = new Button();\n$button->setText(\"提交\");\n$button->onClick(function() use ($entry) {\n    echo \"输入内容: \" . $entry->getText();\n});\n\n$form->addChild($entry);\n$form->addChild($button);\n\n// 网格布局\n$grid = new Grid();\n$grid->addChild($entry, 0, 0);\n$grid->addChild($button, 0, 1);",
+        "best_practices": [
+          "使用布局管理器自动调整控件大小",
+          "实现自定义控件扩展基础组件",
+          "遵循界面设计规范保持一致性",
+          "支持主题切换和样式定制"
+        ]
+      },
+      {
+        "integration_type": "菜单系统集成",
+        "description": "集成菜单和上下文菜单功能，提供完整桌面应用体验",
+        "example_code": "// 菜单系统的集成示例\n$menuBar = new Menu();\n$fileMenu = new MenuItem(\"文件(&F)\");\n$editMenu = new MenuItem(\"编辑(&E)\");\n\n$newItem = new MenuItem(\"新建(&N)\");\n$newItem->onClick(function() {\n    // 新建文件逻辑\n});\n\n$fileMenu->addChild($newItem);\n$menuBar->addChild($fileMenu);\n\n// 上下文菜单\n$contextMenu = new Menu();\n$contextMenu->addChild(new MenuItem(\"复制(&C)\"));\n$contextMenu->addChild(new MenuItem(\"粘贴(&V)\"));\n\n$control->setContextMenu($contextMenu);",
+        "best_practices": [
+          "使用助记符提高可访问性",
+          "实现键盘快捷键支持",
+          "支持菜单项的启用/禁用状态",
+          "提供自定义菜单图标和样式"
+        ]
+      }
+    ],
+    "confidence_score": 8.5
+  },
+  "timestamp": 1761840770,
+  "prompt_hash": "aaabc9a3efaadea86249bcf47dde5010",
+  "token_usage": {
+    "input_tokens": 1284,
+    "output_tokens": 1356,
+    "total_tokens": 2640
+  },
+  "model_name": null
+}

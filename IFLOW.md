@@ -1,75 +1,181 @@
-# 项目概述
+# IFLOW.md - 项目上下文说明
 
-这是一个 PHP 库，名为 `yangweijie/kingbes-libuui-sdk`，它是对 `kingbes/libui` 的面向对象封装。该项目提供了一套易于使用的 PHP 类来创建和管理桌面 GUI 应用程序，基于 libui 库。
+## 1. 项目概述
 
-## 核心概念
+这是一个 PHP 项目，旨在为 [libui](https://github.com/andlabs/libui) GUI 库提供一个面向对象的 PHP 封装。它允许开发者使用更符合 PHP 习惯的 API 来创建跨平台的桌面图形用户界面应用程序。
 
-- **LibuiApplication**: 应用程序的入口点和核心管理器，使用单例模式。
-- **LibuiComponent**: 所有 UI 组件的基类，提供了组件树管理、事件处理和资源清理功能。
-- **EventManager**: 统一的事件管理器，用于处理组件间通信。
-- **窗口管理**: 提供多种窗口类型，如普通窗口、确认对话框、浏览器窗口和保存文件对话框。
+- **项目名称**: yangweijie/ui
+- **项目类型**: PHP 库 (Library)
+- **主要技术**:
+  - PHP 8.2+
+  - PHP FFI (Foreign Function Interface) 扩展
+  - [kingbes/libui](https://github.com/kingbes/php-libui) (核心 FFI 绑定库)
+- **目标平台**:
+  - Windows Vista SP2 x86_64 或更高版本
+  - macOS OS X 10.8 x86_64 或更高版本
+  - Linux GTK+ 3.10 x86_64 或更高版本
 
-## 主要特性
-
-- 面向对象的 API 设计
-- 事件驱动的编程模型
-- 支持多种 UI 组件（按钮、文本框、组合框等）
-- 跨平台剪贴板操作
-- 屏幕信息获取
-- 窗口定位和管理
-
-# 项目结构
+## 2. 项目结构
 
 ```
-kingbes-libui-sdk/
-├── src/
-│   ├── Enums/
-│   ├── LibuiApplication.php
-│   ├── LibuiComponent.php
-│   ├── LibuiWindow.php
-│   ├── EventManager.php
-│   ├── LibuiButton.php
-│   └── ... (其他组件)
-├── vendor/
-└── composer.json
+D:\git\php\ui\
+├── composer.json          # 项目依赖和自动加载配置
+├── composer.lock          # 依赖版本锁定文件
+├── IFLOW.md               # 项目上下文说明文件
+├── README.md              # 项目说明文档
+├── src\                   # 项目源码目录
+│   ├── Area.php           # Area 相关类
+│   ├── Control.php        # 控件基类
+│   ├── Executor.php       # 执行器类
+│   ├── Key.php            # 键盘事件相关类
+│   ├── Menu.php           # 菜单类
+│   ├── MenuItem.php       # 菜单项类
+│   ├── Point.php          # 点坐标类
+│   ├── Size.php           # 尺寸类
+│   ├── UI.php             # UI 入口类
+│   ├── Window.php         # 窗口类
+│   ├── Area\              # Area 子目录
+│   │   └── DrawParams.php # Area 绘图参数类
+│   ├── Controls\          # 控件类目录
+│   │   ├── Box.php        # 布局容器控件
+│   │   ├── Button.php     # 按钮控件
+│   │   ├── Checkbox.php   # 复选框控件
+│   │   ├── ColorButton.php # 颜色选择按钮控件
+│   │   ├── Combobox.php   # 下拉框控件
+│   │   ├── DateTimePicker.php # 日期时间选择器控件
+│   │   ├── EditableCombobox.php # 可编辑下拉框控件
+│   │   ├── Entry.php      # 单行输入框控件
+│   │   ├── FontButton.php # 字体选择按钮控件
+│   │   ├── Form.php       # 表单布局控件
+│   │   ├── Grid.php       # 网格布局控件
+│   │   ├── Group.php      # 分组控件
+│   │   ├── Image.php      # 图像控件
+│   │   ├── Label.php      # 标签控件
+│   │   ├── MultilineEntry.php # 多行输入框控件
+│   │   ├── ProgressBar.php # 进度条控件
+│   │   ├── Radio.php      # 单选框控件
+│   │   ├── Separator.php  # 分隔符控件
+│   │   ├── Slider.php     # 滑块控件
+│   │   ├── Spinbox.php    # 数值输入框控件
+│   │   ├── Tab.php        # 标签页控件
+│   │   └── Table.php      # 表格控件
+│   └── Exception\         # 异常类目录
+│       ├── InvalidArgumentException.php # 无效参数异常类
+│       └── RuntimeException.php         # 运行时异常类
+├── example\               # 示例代码目录
+│   ├── button.php         # 按钮示例
+│   ├── calculator.php     # 计算器示例
+│   ├── complex.php        # 复杂示例
+│   ├── grid.php           # 网格布局示例
+│   ├── grid1.php          # 网格布局示例1
+│   ├── grid2.php          # 网格布局示例2
+│   ├── grid3.php          # 网格布局示例3
+│   ├── grid4.php          # 网格布局示例4
+│   ├── histogram.php      # 直方图示例
+│   ├── snake.php          # 贪吃蛇游戏示例
+│   └── ...                # 更多示例文件
+├── tests\                 # 测试代码目录
+└── vendor\                # Composer 依赖库目录
+    └── kingbes\libui\     # 核心 GUI 绑定库
+        ├── README.md      # 核心库说明文档
+        ├── composer.json  # 核心库配置
+        ├── src\           # 核心库 PHP 绑定代码 (App, Window, Button 等)
+        ├── lib\           # 预编译的 libui C 库文件 (Windows, Linux, macOS)
+        └── test\          # 核心库示例和测试代码
 ```
 
-# 开发约定
+## 3. 核心架构与组件
 
-- 使用 PSR-4 自动加载标准
-- 所有类都位于 `Kingbes\Libui\SDK` 命名空间下
-- 组件继承自 `LibuiComponent` 基类
-- 事件处理通过 `EventManager` 统一管理
-- 使用单例模式管理应用程序实例
+该库通过 PHP FFI 调用 [kingbes/libui](https://github.com/kingbes/php-libui) 提供的底层绑定来创建 GUI 元素，并在此基础上提供面向对象的封装。
 
-# 构建和运行
+### 3.1. 核心入口点
 
-由于这是一个 PHP 库，不需要传统的构建过程。使用时需要通过 Composer 安装依赖。
+- `UI\UI::init()`: 初始化 UI 库
+- `UI\UI::run()`: 启动主事件循环
+- `UI\UI::exit()`: 退出应用
+
+### 3.2. 核心组件
+
+- `UI\Window`: 创建和管理窗口
+- `UI\Control`: 所有 UI 控件的基类
+- `UI\Area`: 绘图区域控件
+- `UI\Area\DrawParams`: 绘图参数封装类
+- `UI\Controls\Box`: 布局容器 (水平/垂直)
+- `UI\Controls\Button`: 按钮控件
+- `UI\Controls\Label`: 标签控件
+- `UI\Controls\Entry`: 输入框控件
+- `UI\Controls\Checkbox`: 复选框控件
+- `UI\Controls\ColorButton`: 颜色选择按钮控件
+- `UI\Controls\Combobox`: 下拉框控件
+- `UI\Controls\EditableCombobox`: 可编辑下拉框控件
+- `UI\Controls\DateTimePicker`: 日期时间选择器控件
+- `UI\Controls\FontButton`: 字体选择按钮控件
+- `UI\Controls\Form`: 表单布局控件
+- `UI\Controls\Grid`: 网格布局控件
+- `UI\Controls\Group`: 分组控件
+- `UI\Controls\Image`: 图像控件
+- `UI\Controls\MultilineEntry`: 多行输入框控件
+- `UI\Controls\ProgressBar`: 进度条控件
+- `UI\Controls\Radio`: 单选框控件
+- `UI\Controls\Separator`: 分隔符控件
+- `UI\Controls\Slider`: 滑块控件
+- `UI\Controls\Spinbox`: 数值输入框控件
+- `UI\Controls\Tab`: 标签页控件
+- `UI\Controls\Table`: 表格控件
+- `UI\Size`: 用于表示尺寸
+- `UI\Point`: 用于表示坐标点
+
+### 3.3. 工作原理
+
+1. PHP 代码通过 `UI\` 命名空间的类与 GUI 元素交互
+2. 这些类内部调用 [kingbes/libui](https://github.com/kingbes/php-libui) 提供的 FFI 绑定
+3. FFI 绑定负责与原生 `libui` C 库交互
+4. 原生 `libui` C 库负责与操作系统的 GUI 系统交互
+
+## 4. 构建、运行与开发
+
+### 4.1. 环境要求
+
+- PHP 8.2 或更高版本
+- 启用 `FFI` 扩展
+- 支持的 64 位操作系统 (Windows, macOS, Linux)
+
+### 4.2. 安装依赖
 
 ```bash
+# 安装项目依赖 (包括 kingbes/libui)
 composer install
 ```
 
-要运行一个简单的示例，可以创建一个 PHP 文件并包含自动加载器：
+### 4.3. 运行示例
 
-```php
-require_once 'vendor/autoload.php';
+项目提供了多个示例代码：
 
-use Kingbes\Libui\SDK\LibuiApplication;
-use Kingbes\Libui\SDK\LibuiWindow;
-use Kingbes\Libui\SDK\LibuiButton;
+```bash
+# 运行一个简单的按钮示例
+php example/button.php
 
-$app = LibuiApplication::getInstance();
-$app->init();
+# 运行直方图示例
+php example/histogram.php
 
-$window = $app->createWindow("Hello World", 300, 200);
-$button = new LibuiButton("Click Me");
-
-$button->onClick(function() {
-    echo "Button clicked!\n";
-});
-
-$window->setChild($button)->show();
-
-$app->run();
+# 运行贪吃蛇游戏示例
+php example/snake.php
 ```
+
+### 4.4. 运行测试
+
+本项目使用 Pest 和 PHPUnit 作为测试框架：
+
+```bash
+# 使用 Pest 运行测试
+php run_pest_tests.php
+
+# 使用 PHPUnit 运行测试
+php run_phpunit_tests.php
+```
+
+### 4.5. 开发
+
+- **自动加载**: 项目遵循 PSR-4 标准，`UI\` 命名空间映射到 `src/` 目录
+- **代码风格**: 采用 PHPDoc 注释规范，类和方法有明确的文档说明
+- **API 设计**: API 设计尽可能贴近 PHP 官方 UI 扩展的接口，方便开发者学习和使用
